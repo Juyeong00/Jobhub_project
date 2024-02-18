@@ -6,7 +6,7 @@
 }
 
 .header_menu{
-	background-color : white;
+    background-color : white;
 }
 
 .container{
@@ -24,6 +24,7 @@
     font-size:25px;
     padding-left:180px;
     padding-top:40px;
+    margin-top:50px;
 }
 .apply_header{
     width:78%;
@@ -388,7 +389,7 @@ hr{
 ul{
     list-style:none;
 }
-span{
+.span{
     color:#2dc26b;
     
 }
@@ -414,17 +415,16 @@ span{
     color: #ffffff;
 }
 .chk_status{
-	margin-top:10px;
-	display:flex
+    margin-top:10px;
+    display:flex
 }
 
 #edu_remove,
 #car_remove,
 #cert_remove{
-	border:0;
+    border:0;
     outline:0;
      background-color: inherit ;
     cursor:pointer;
      text-decoration: underline;
 }
-

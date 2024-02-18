@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Jobhub 채용공고 조회</title>
+<title>Jobhub</title>
 <link rel="stylesheet" href="css/admin/admin.css">
 <link rel="shortcut icon" href="common/icon/jobhub_favicon.ico"
 	type="image/x-icon">
@@ -22,12 +22,12 @@
  <header id="hd">
         <div id="hd_wrap">
             <h1>Jobhub 관리자 페이지</h1>
-            <div id="logo"><a href="/admin/adminMain"><img src="/img/admin/logo_wh_250x35.png"
+            <div id="logo"><a href="/"><img src="/img/admin/logo_wh_250x35.png"
                         alt="Jobhub logo"></a></div>
             <div id="tnb">
                 <ul>
                     <li>${loginId}님</li>
-                    <li><a href="#" target="_blank">Jobhub바로가기</a></li>
+                    <li><a href="/" target="_blank">Jobhub바로가기</a></li>
                     <li><a href="/admin/mypage">마이페이지</a></li>
                     <li id="tnb_logout"><a href="#">로그아웃</a></li>
                 </ul>

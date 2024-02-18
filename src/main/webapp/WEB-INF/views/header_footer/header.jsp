@@ -23,7 +23,7 @@
 
                     <div class="header_menu1_list_item white_font" onclick="location.href='/people'">People</div>
                     <div class="header_menu1_list_item white_font">Culture</div>
-                    <div class="header_menu1_list_item white_font" onclick="location.href='/customer/notice_by_career'">Jobs</div>
+                    <div class="header_menu1_list_item white_font" onclick="location.href='/jobs'">Jobs</div>
                     <div class="header_menu1_list_item white_font" onclick="location.href='/cus/faqs'">FAQs</div>
 
                 </div>

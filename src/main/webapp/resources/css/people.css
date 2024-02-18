@@ -6,7 +6,8 @@
     box-sizing:border-box;
 }
 .container{
-	margin-left:30px;
+    margin-left:30px;
+    margin-bottom:100px;
 }
 .container::after {
     content:""; /* ::after content 가 아예 없으면 동작X */
@@ -71,7 +72,7 @@ li{
     vertical-align: top;
     width: 210px;
 }
-img {
+.img {
     float:left;
     width:210px;
     height:210px;
@@ -97,3 +98,109 @@ img {
     /* line-height: 2.4rem; */
     margin-top: 7px;
 }
+
+
+.header_menu{
+    position: fixed;
+    width: 100%;
+    display: flex;
+    height: 90px;
+    padding: 30px;
+    justify-content: space-between;
+    background-color: white;
+    z-index: 10;
+    margin-top:-100px;
+}
+
+
+.scrolled {
+    background-color: white;
+    color: black;
+}
+
+.white_fnt{
+    color : black;
+}
+
+.header_menu1{
+    display: flex;
+}
+
+.header_title{
+    font-size: 23px;
+    font-weight: bolder;
+    margin-right: 20px;
+    cursor: pointer;
+}
+.header_menu1_list{
+    display: flex;
+    padding-left: 30px;
+}
+
+.header_menu1_list_item{
+    font-size: 20px;
+    margin-right: 30px;
+    cursor: pointer;
+}
+
+.header_menu1_list_item:hover{
+    transition: 2s;
+    border-bottom: 2px solid blue;
+}
+
+
+.header_menu2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.header_menu2_list2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header_menu2_list2_item{
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.header_menu2_list1_item{
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.fa-globe{
+    margin: 0;
+}
+
+.line_bar{
+    text-align: center;
+    width: 1px;
+    height: 23px;
+    border-left: 1.5px solid lightgray;
+}
+
+.login_btn{
+    border: none;
+    cursor: pointer;
+}
+
+.search_text{
+    cursor: pointer;
+}
+
+.select_country{
+    font-size: 15px;
+    border: none;
+}
+

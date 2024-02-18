@@ -106,9 +106,6 @@ public class JobpostingController {
 		Jobposting jobposting = jobpostingService.findPostingBypostingId(postingId);
 		Description description = jobpostingService.findDescriptionBypostingId(postingId);
 		
-		System.out.println(jobposting);
-		System.out.println(description);
-		
 		model.addAttribute("jobposting", jobposting);
 		model.addAttribute("description", description);
 		
