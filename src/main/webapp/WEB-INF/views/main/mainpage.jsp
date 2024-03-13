@@ -63,7 +63,7 @@
 				</div>
 			</div>
 			<video class="text_area"
-				src="/image/1216_1280_Compress_1_4aa78543db.mp4" muted autoplay
+				src="/image/mainvideo.mp4" muted autoplay
 				loop="loop">
 			</video>
 			<div class="scroll_down">
@@ -99,7 +99,10 @@
 						</div>
 					</div>
 					<div class="company_news_box">
-						<div class="news_3_image">뉴스3이미지</div>
+						<div class="news_3_image">
+							<img src="/image/뉴스이미지3.jpg"
+								style="width: 100%; height: 250px; object-fit: cotain;">
+						</div>
 						<div class="news_box">
 							<div class="news_title">2024년 채용 계획 발표</div>
 							<div class="news_content">"2024년 JOBHUB의 채용 계획이 발표되었습니다.
@@ -107,7 +110,10 @@
 						</div>
 					</div>
 					<div class="company_news_box">
-						<div class="news_4_image">뉴스4이미지</div>
+						<div class="news_4_image">
+							<img src="/image/뉴스이미지4.jpg"
+								style="width: 100%; height: 250px; object-fit: cotain;">
+						</div>
 						<div class="news_box">
 							<div class="news_title">글로벌 사업 확장 소식</div>
 							<div class="news_content">"JOBHUB이 글로벌 사업 확장에 성공적으로 나서고

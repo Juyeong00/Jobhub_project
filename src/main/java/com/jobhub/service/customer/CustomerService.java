@@ -47,5 +47,9 @@ public interface CustomerService {
 	public List<Resume> findSubmissionResumeByPostingId(String postingId);
 	
 	public List<Resume> findNotSubmissionResume(String userId);
+	
+	public List<Customer> findCustomerList();
+	
+	public List<Customer> findCustomerListBySearchCondition(CustomerSearchCondition customerSearchCondition);
 
 }

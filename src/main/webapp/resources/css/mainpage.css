@@ -18,15 +18,19 @@
     flex-direction: column;
     justify-content: center;
     align-content: space-around;
-    padding-top: 100px;
     width: 100%;
     height: 800px;
     color: white;
     
 }
+video{
+    object-fit: fill;
 
+}
 .text_area{
     z-index: -5;
+    width:100%;
+    height:100%;
     display: flex;
     flex-direction: column;
     align-content: space-between;
@@ -38,18 +42,19 @@
 .company_title_text{
     font-size: 85px;
     font-weight: bold;
-    position: absolute; /* 절대 위치 설정 */
-    top: 50%; /* 상단 여백 조정 */
-    left: 50%; /* 좌측 여백 조정 */
+    position: absolute;
+    top: 30%;
+    left: 50%;
     transform: translate(-50%, -50%);
     position: relative;
+    user-select : none;
 }
 
 .select_filter_box{
     display: flex;
     align-items: center;
-    padding-top: 45px;
     position: relative;
+    top:23%;
 }
 
 .select_category_box{
@@ -62,8 +67,6 @@
     width: 200px;
     font-size: 20px;
     padding: 13px;
-    /* background-color: darkgray;
-    background-color: rgba(0,0,0,0); */
     background-color: transparent;
 }
 
@@ -74,10 +77,12 @@
 }
 
 .scroll_down{
+	margin-top:280px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    user-select : none;
 }
 
 .scroll_down_text{

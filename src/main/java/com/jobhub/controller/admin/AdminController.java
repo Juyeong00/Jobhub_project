@@ -17,8 +17,6 @@ import com.jobhub.dto.admin.AdminSearchCondition;
 import com.jobhub.service.admin.AdminService;
 import com.jobhub.util.LoginManager;
 
-import lombok.extern.slf4j.Slf4j;
-
 @Controller
 //@Slf4j
 @RequestMapping("/admin")
