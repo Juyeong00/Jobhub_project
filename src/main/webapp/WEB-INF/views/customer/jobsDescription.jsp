@@ -45,8 +45,9 @@
 	height: 50px;
 	width: 200px;
 	color: white;
-	background-color: green;
+	background-color: #2dc26b;
 	margin-left: 500px;
+	border:none;
 }
 
 .descriptionLabel {
@@ -64,18 +65,17 @@
 		<div class="notice_box_container">
 			<div class="notice_info_header">
 				<span class="notice_title">Find Your Next Career</span>
-				<div class="company_advertising_slide"></div>
 
 				<div class="career_category">
 
-					<span class="category_item"><a href="/jobs">ALL</a></span>
+					<span class="category_item"><a href="/jobs" class="p_sub_tab_title">ALL</a></span>
 
 					<c:forEach var="jobItem" items="${jobList}">
 						<c:choose>
 							<c:when test="${jobItem.jobsLevel == 1}">
 
 								<span class="category_item"><a
-									href="../list?jobsCateName=${jobItem.jobsName}">${jobItem.jobsName}</a></span>
+									href="../list?jobsCateName=${jobItem.jobsName}" class="p_sub_tab_title">${jobItem.jobsName}</a></span>
 
 							</c:when>
 						</c:choose>

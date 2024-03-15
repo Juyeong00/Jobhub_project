@@ -32,4 +32,6 @@ public interface ApplyService {
 	public boolean isDuplicatedId(String id);
 	
 	public List<Employee> findEmployeeList();
+	
+	public List<Employee> findEmployeeByJobsname(String cate);
 }

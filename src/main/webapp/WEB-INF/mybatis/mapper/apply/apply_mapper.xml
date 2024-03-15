@@ -3,23 +3,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 						"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-
 <mapper namespace="apply_mapper">
-
-	<!-- <insert id="saveEducationInfo" parameterType="hashmap"> <foreach collection="resumeList" 
-		item="item" open="INSERT ALL" close="SELECT * FROM dual"> INTO education 
-		VALUES ( edu_seq.nextval, edu_seq.nextval, #{item.eduSortation}, #{item.schoolName}, 
-		#{item.admission}, #{item.graduation}, REPLACE(#{item.major}, 'null', ''), 
-		REPLACE(#{item.minor}, 'null', ''), REPLACE(#{item.grade}, 'null', ''), REPLACE(#{item.totalScore}, 
-		'null', ''), REPLACE(#{item.graduationStatus} , 'null', '') ) </foreach> 
-		</insert> -->
-
-	<!-- <insert id="saveCareerInfo" parameterType="hashmap"><foreach collection="careerList" 
-		item="ca" open="INSERT ALL" close="SELECT * FROM dual"> INTO career VALUES 
-		( (SELECT NVL(MAX(career_id), 0) + 1 FROM career), 1, #{ca.companyName}, 
-		#{ca.departmentName}, #{ca.joinDate}, #{ca.resignationDate}, #{ca.duty}, 
-		#{ca.position}, #{ca.detailWork} ) </foreach> </insert> -->
-
 
 	<insert id="saveEducationInfo">
 		<selectKey keyProperty="maxSeq" resultType="int"
@@ -46,8 +30,6 @@
 		</foreach>
 	</insert>
 
-
-	<!-- 2/8현재 성공한 쿼리문 이걸로 전부 수정해야됨!!!!!!!!!!!!!!!!!!!! -->
 	<insert id="saveCareerInfo">
 		<selectKey keyProperty="maxSeq" resultType="int"
 			order="BEFORE">
@@ -69,7 +51,6 @@
 			REPLACE(#{ca.detailWork}, 'null', '') FROM DUAL
 		</foreach>
 	</insert>
-
 
 	<insert id="saveCertificateInfo">
 		<selectKey keyProperty="maxSeq" resultType="int"
@@ -111,27 +92,6 @@
 			'null', '') FROM DUAL
 		</foreach>
 	</insert>
-
-	<!-- <insert id="saveCertificateInfo" parameterType="hashmap"> <foreach 
-		collection="certList" item="cert" open="INSERT ALL" close="SELECT * FROM 
-		dual"> INTO certificate VALUES ( (SELECT NVL(MAX(certificate_id), 0) + 1 
-		FROM certificate), certificate_seq.nextval, REPLACE(#{cert.certSortation}, 
-		'null', ''), REPLACE(#{cert.certType}, 'null', ''), REPLACE(#{cert.certLevel}, 
-		'null', ''), REPLACE(#{cert.acquisition}, 'null', ''), REPLACE(#{cert.lssuingAuthority}, 
-		'null', ''), REPLACE(#{cert.language}, 'null', ''), REPLACE(#{cert.test}, 
-		'null', ''), REPLACE(#{cert.languageGrade}, 'null', '') ) </foreach> </insert> -->
-
-
-	<!-- <insert id="saveFileInfo"> <selectKey keyProperty="maxSeq" resultType="int" 
-		order="BEFORE"> SELECT NVL(MAX(f_id) + 1, 1) FROM attached_data </selectKey> 
-		INSERT INTO attached_data <foreach collection="fileList" item="f" index="idx" 
-		separator="UNION ALL"> SELECT #{maxSeq} + #{idx}, (SELECT NVL(MAX(f_id) + 
-		1, 1) FROM attached_data), REPLACE(#{f.fileName}, 'null', ''), REPLACE(#{f.originalFileName}, 
-		'null', ''), REPLACE(#{f.filePath}, 'null', ''), REPLACE(#{f.fileExtension}, 
-		'null', ''), REPLACE(#{f.fileSize} , 'null', ''), SYSDATE FROM DUAL </foreach> 
-		</insert> -->
-
-
 
 	<insert id="saveResume" parameterType="Resume">
 		INSERT INTO resume_info
@@ -179,7 +139,6 @@
 		)
 	</insert>
 
-
 	<insert id="saveFileInfo" parameterType="FileInfo">
 		INSERT INTO attached_data VALUES
 		( (SELECT NVL(MAX(file_id) + 1 , 1) FROM attached_data),
@@ -200,11 +159,8 @@
 		SYSDATE)
 	</insert>
 
-
-
 	<select id="findEmployeeList" resultType="Employee">
-		SELECT e.name,
-		jobs_name, e.email
+		SELECT e.name, jobs_name, e.email
 		FROM employee e, jobs j
 		WHERE e.jobs_id = j.jobs_id
 	</select>
@@ -214,7 +170,16 @@
 		FROM job_posting
 		WHERE posting_id = #{postingId}
 	</select>
+	
+	<select id="findEmployeeByJobsname" parameterType="String" resultType="Employee">
+		SELECT * 
+		FROM (SELECT e.*, js.jobs_name jobsName,
+		        (SELECT jobs_name
+		        FROM jobs j
+		        WHERE j.jobs_id = js.jobs_pid) jobsCateName
+		    FROM employee e, jobs js
+		    WHERE e.jobs_id = js.jobs_id)  
+		WHERE jobsCateName LIKE '%' || #{jobsName} || '%'
+	</select>
 
 </mapper>
-
-

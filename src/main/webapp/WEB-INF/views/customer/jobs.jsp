@@ -25,26 +25,22 @@
 	<!--헤더 -->
 	<%@ include file="../header_footer/header.jsp"%>
 
-
 	<!--부서별 공고페이지 메인-->
 	<div class="container">
 		<div class="notice_box_container">
 			<div class="notice_info_header">
 				<span class="notice_title">Find Your Next Career</span>
-				<div class="company_advertising_slide">
-					<img src=""> <img src=""> <img>
-				</div>
-
+				
 				<div class="career_category">
 
-					<span class="category_item"><a href="/jobs">ALL</a></span>
+					<span class="category_item"><a href="/jobs" class="p_sub_tab_title">ALL</a></span>
 
 					<c:forEach var="jobItem" items="${jobList}">
 						<c:choose>
 							<c:when test="${jobItem.jobsLevel == 1}">
 
 								<span class="category_item"><a
-									href="../list?jobsCateName=${jobItem.jobsName}">${jobItem.jobsName}</a></span>
+									href="../list?jobsCateName=${jobItem.jobsName}" class="p_sub_tab_title">${jobItem.jobsName}</a></span>
 
 							</c:when>
 						</c:choose>
@@ -70,11 +66,10 @@
 				<span class="notice_guide_text">${postingCount}개의 채용공고가 있습니다</span>
 
 				<c:forEach var="jobpostingNameItem" items="${jobpostingNameList}">
-					<%--  <c:if test="${jobpostingNameItem.postStatus = 'O'} " > --%>
 					<div class="notice_list_item">
 						<div class="notice_info_title">
 							<a
-								href="../jobsDescription?postingId=${jobpostingNameItem.postingId}">${jobpostingNameItem.title}</a>
+								href="../jobsDescription?postingId=${jobpostingNameItem.postingId}" class="postingName">${jobpostingNameItem.title}</a>
 							<div class="notice_filter">
 								<span class="notice_filter_text">${jobpostingNameItem.employmentType}
 									|</span> <span class="notice_filter_text">${jobpostingNameItem.jobsCateName}
@@ -125,7 +120,6 @@
 								~ ${jobpostingNameItem.applicationDeadline}</span>
 						</div>
 					</div>
-					<%--  </c:if> --%>
 				</c:forEach>
 
 			</div>
@@ -158,7 +152,6 @@
         
         
     </script>
-
 
 	<!--footer-->
 	<%@ include file="../header_footer/footer.jsp"%>

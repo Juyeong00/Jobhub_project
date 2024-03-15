@@ -22,8 +22,6 @@ public class ApplyDAOImpl implements ApplyDAO{
 
 	@Override
 	public int saveEducationInfo(Map<String, Object> eduMap) {
-		// TODO Auto-generated method stub
-
 		int result = sqlSessionTemplate.insert("apply_mapper.saveEducationInfo", eduMap);
 
 		return result;
@@ -31,67 +29,53 @@ public class ApplyDAOImpl implements ApplyDAO{
 
 	@Override
 	public int saveCareerInfo(Map<String, Object> hashMap) {
-		// TODO Auto-generated method stub
-
+		
 		int result = sqlSessionTemplate.insert("apply_mapper.saveCareerInfo", hashMap);
-
 		return result;
 	}
 
 	@Override
 	public int saveCertificateInfo(Map<String, Object> hashMap) {
-		// TODO Auto-generated method stub
 
 		int result = sqlSessionTemplate.insert("apply_mapper.saveCertificateInfo", hashMap);
-
 		return result;
 	}
 
 	@Override
 	public int saveAnswerInfo(Map<String, Object> hashMap) {
-		// TODO Auto-generated method stub
 
 		int result = sqlSessionTemplate.insert("apply_mapper.saveAnswerInfo", hashMap);
-
 		return result;
 	}
 
 	@Override
 	public int saveFileInfo(FileInfo fileInfo) {
-		// TODO Auto-generated method stub
-
+		
 		int result = sqlSessionTemplate.insert("apply_mapper.saveFileInfo", fileInfo);
-
 		return result;
 	}
 
 	@Override
 	public int saveResumeInfo(Resume resume) {
-		// TODO Auto-generated method stub
 
 		int result = sqlSessionTemplate.insert("apply_mapper.saveResume", resume);
-
 		return result;
 	}
 
 	@Override
 	public int saveFileInfo(Map<String, Object> hashMap) {
-		// TODO Auto-generated method stub
 		int result = sqlSessionTemplate.insert("apply_mapper.saveFileInfo", hashMap);
-
 		return result;
 	}
 
 	@Override
 	public List<Employee> findEmployeeList() {
-		// TODO Auto-generated method stub
 		List<Employee> employeeList = sqlSessionTemplate.selectList("apply_mapper.findEmployeeList");
 		return employeeList;
 	}
 
 	@Override
 	public Jobposting findQuestions(String postingId) {
-		// TODO Auto-generated method stub
 		Jobposting questList = sqlSessionTemplate.selectOne("apply_mapper.findQuestions", postingId);
 		return questList;
 	}
@@ -101,6 +85,13 @@ public class ApplyDAOImpl implements ApplyDAO{
 		Customer user = sqlSessionTemplate.selectOne("login_mapper.findUserById", id);
 
 		return user;
+	}
+
+	@Override
+	public List<Employee> findEmployeeByJobsname(String cate) {
+		
+		List<Employee> empNameList = sqlSessionTemplate.selectList("apply_mapper.findEmployeeByJobsname", cate);
+		return empNameList;
 	}
 
 }

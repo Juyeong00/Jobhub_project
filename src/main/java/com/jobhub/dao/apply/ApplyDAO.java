@@ -27,7 +27,10 @@ public interface ApplyDAO {
 
 	public Jobposting findQuestions(String postingId);
 	
+	public Customer findUserById(String id);
+	
 	public List<Employee> findEmployeeList();
 	
-	public Customer findUserById(String id);
+	public List<Employee> findEmployeeByJobsname(String cate);
+	
 }
