@@ -11,40 +11,32 @@
 			SELECT NVL(MAX(edu_id) + 1, 1) FROM education
 		</selectKey>
 		INSERT INTO education
-		<foreach collection="eduList" item="item" index="idx"
-			separator="UNION ALL">
+		<foreach collection="eduList" item="item" index="idx" separator="UNION ALL">
 			SELECT #{maxSeq} + #{idx},
-			(SELECT NVL(MAX(edu_id) + 1, 1)
-			FROM education),
+			(SELECT NVL(MAX(edu_id) + 1, 1) FROM education),
 			#{item.eduSortation},
 			#{item.schoolName},
 			#{item.admission},
 			#{item.graduation},
-			REPLACE(#{item.major}, 'null',
-			''),
+			REPLACE(#{item.major}, 'null', ''),
 			REPLACE(#{item.minor}, 'null', ''),
-			REPLACE(#{item.grade}, 'null',
-			''),
+			REPLACE(#{item.grade}, 'null', ''),
 			REPLACE(#{item.totalScore}, 'null', ''),
 			REPLACE(#{item.graduationStatus} , 'null', '') FROM DUAL
 		</foreach>
 	</insert>
 
 	<insert id="saveCareerInfo">
-		<selectKey keyProperty="maxSeq" resultType="int"
-			order="BEFORE">
+		<selectKey keyProperty="maxSeq" resultType="int" order="BEFORE">
 			SELECT NVL(MAX(car_id) + 1, 1) FROM career
 		</selectKey>
 		INSERT INTO career
-		<foreach collection="careerList" item="ca" index="idx"
-			separator="UNION ALL">
+		<foreach collection="careerList" item="ca" index="idx" separator="UNION ALL">
 			SELECT #{maxSeq} + #{idx},
-			(SELECT NVL(MAX(car_id) + 1, 1)
-			FROM career),
+			(SELECT NVL(MAX(car_id) + 1, 1) FROM career),
 			REPLACE(#{ca.companyName}, 'null', ''),
 			REPLACE(#{ca.departmentName}, 'null', ''),
-			REPLACE(#{ca.joinDate},
-			'null', ''),
+			REPLACE(#{ca.joinDate}, 'null', ''),
 			REPLACE(#{ca.resignationDate}, 'null', ''),
 			REPLACE(#{ca.duty}, 'null', ''),
 			REPLACE(#{ca.position}, 'null', ''),
@@ -53,43 +45,35 @@
 	</insert>
 
 	<insert id="saveCertificateInfo">
-		<selectKey keyProperty="maxSeq" resultType="int"
-			order="BEFORE">
+		<selectKey keyProperty="maxSeq" resultType="int" order="BEFORE">
 			SELECT NVL(MAX(cert_id) + 1, 1) FROM certificate
 		</selectKey>
 		INSERT INTO certificate
 		<foreach collection="certList" item="cert" index="idx"
 			separator="UNION ALL">
 			SELECT #{maxSeq} + #{idx},
-			(SELECT NVL(MAX(cert_id) + 1, 1)
-			FROM certificate),
+			(SELECT NVL(MAX(cert_id) + 1, 1) FROM certificate),
 			REPLACE(#{cert.certSortation}, 'null', ''),
 			REPLACE(#{cert.certType}, 'null', ''),
-			REPLACE(#{cert.certLevel},
-			'null', ''),
+			REPLACE(#{cert.certLevel}, 'null', ''),
 			REPLACE(#{cert.acquisition}, 'null', ''),
 			REPLACE(#{cert.lssuingAuthority}, 'null', ''),
 			REPLACE(#{cert.language}, 'null', ''),
-			REPLACE(#{cert.test}, 'null',
-			''),
+			REPLACE(#{cert.test}, 'null', ''),
 			REPLACE(#{cert.languageGrade}, 'null', '') FROM DUAL
 		</foreach>
 	</insert>
 
 	<insert id="saveAnswerInfo">
-		<selectKey keyProperty="maxSeq" resultType="int"
-			order="BEFORE">
+		<selectKey keyProperty="maxSeq" resultType="int" order="BEFORE">
 			SELECT NVL(MAX(answer_id) + 1, 1) FROM job_question
 		</selectKey>
 		INSERT INTO job_question
-		<foreach collection="ansList" item="ans" index="idx"
-			separator="UNION ALL">
+		<foreach collection="ansList" item="ans" index="idx" separator="UNION ALL">
 			SELECT #{maxSeq} + #{idx},
-			REPLACE(#{ans.content1}, 'null',
-			''),
+			REPLACE(#{ans.content1}, 'null', ''),
 			REPLACE(#{ans.content2}, 'null', ''),
-			REPLACE(#{ans.content3},
-			'null', '') FROM DUAL
+			REPLACE(#{ans.content3}, 'null', '') FROM DUAL
 		</foreach>
 	</insert>
 

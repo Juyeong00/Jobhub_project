@@ -3,8 +3,6 @@ package com.jobhub.controller.jobposting;
 
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
-
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,19 +10,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.jobhub.common.CommonCode;
 import com.jobhub.dto.jobposting.Description;
 import com.jobhub.dto.jobposting.FAQs;
 import com.jobhub.dto.jobposting.Job;
 import com.jobhub.dto.jobposting.Jobposting;
-import com.jobhub.dto.jobposting.PostingSearchCondition;
 import com.jobhub.service.jobposting.JobpostingService;
 
 
@@ -46,13 +39,11 @@ public class JobpostingController {
 	}
 
 	@PostMapping("/jobposting")
-	public String jobpostingProcess(@ModelAttribute Jobposting jobposting, @ModelAttribute Description description /*HttpSession session*/) {
+	public String jobpostingProcess(@ModelAttribute Jobposting jobposting, @ModelAttribute Description description) {
 
-		String jobpostingId = sqlSession.selectOne("jobPosting_mapper.findJobpostingId"); //posting id 값 맞춘거
-		//String adminId = (String) session.getAttribute("admin_id");
+		String jobpostingId = sqlSession.selectOne("jobPosting_mapper.findJobpostingId");
 		
 		jobposting.setPostingId(jobpostingId);
-		//jobposting.setAdminID(adminId);
 		
 		int result = jobpostingService.saveJobposting(jobposting);
 
@@ -84,12 +75,8 @@ public class JobpostingController {
 	@RequestMapping("jobpostingMain")
 	public String jobpostingMain(Model model, String keyword ) {
 		
-//		List<Jobposting> jobpostingList = jobpostingService.findJobpostingList();
-		
 		List<Jobposting> postingList = jobpostingService.findJobpostingListBySearchCondition(keyword);
 
-//		model.addAttribute("jobpostingList" , jobpostingList);
-		
 		model.addAttribute("jobpostingList",postingList);
 		
 		model.addAttribute("postingCount",sqlSession.selectOne("jobPosting_mapper.findPostingCount"));
@@ -101,7 +88,6 @@ public class JobpostingController {
 	
 	@GetMapping("/modifyJobposting")
 	public String modifyjobpositng(@RequestParam String postingId, Model model) {
-		
 		
 		Jobposting jobposting = jobpostingService.findPostingBypostingId(postingId);
 		Description description = jobpostingService.findDescriptionBypostingId(postingId);
@@ -127,12 +113,8 @@ public class JobpostingController {
 			System.out.println("실패");
 			return "jobPosting/modifyJobposting";
 		}
-		
-		
 	}
 	
-	
-
 	//FAQs
 	
 	@GetMapping("addFaqs")
@@ -140,7 +122,6 @@ public class JobpostingController {
 		
 		return "FAQs/addFaqs";
 	}
-	
 	
 	@PostMapping("addFaqs")
 	public String addFAQsProcess(@ModelAttribute FAQs faqs) {
@@ -157,8 +138,7 @@ public class JobpostingController {
 		}
 	}
 	
-	
-	@RequestMapping("faqs")
+	@RequestMapping("/admin/faqs")
 	public String faqsMain(Model model) {
 		List<FAQs> faqsList = jobpostingService.findFaqsList();
 		model.addAttribute("faqsList" , faqsList);
@@ -176,7 +156,6 @@ public class JobpostingController {
 		return "FAQs/modifyFaqs";
 	}
 	
-	
 	@PostMapping("/modifyFaqs")
 	public String  modifyFaqsProcess(@ModelAttribute FAQs faqs) {
 		int result = jobpostingService.modifyFaqs(faqs);
@@ -192,7 +171,6 @@ public class JobpostingController {
 		
 	}
 	
-	
 	@RequestMapping("/removeFaqs")
 	public String removeFaqsProcess(@RequestParam String FAQsId) {
 		int result = jobpostingService.removeFaqsById(FAQsId);
@@ -206,18 +184,3 @@ public class JobpostingController {
 		}
 	}
 }
-	
-	
-
-
-
-	
-	
-
-	
-	
-
-
-
-
-

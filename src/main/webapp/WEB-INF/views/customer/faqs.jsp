@@ -3,7 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>faqs</title>
+<title>Jobhub</title>
+<link rel="shortcut icon" href="common/icon/jobhub_favicon.ico"
+	type="image/x-icon">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
 	integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
@@ -13,12 +15,12 @@
 <link rel="stylesheet" href="/css/footer.css">
 <style>
 .accordion-item-content {
-	display: none; /* 기본적으로 아코디언 아이템 숨김 */
+	display: none;
 	padding: 20px;
 }
 
 .accordion-item-content.active {
-	display: block; /* 활성화된 아코디언 아이템은 보여짐 */
+	display: block;
 }
 
 .accordion {

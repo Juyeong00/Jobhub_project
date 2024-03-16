@@ -304,6 +304,7 @@ public class CustomerController {
 	@GetMapping("/list")
 	public String list( Model model , @RequestParam String jobsCateName ) throws UnsupportedEncodingException {
 
+		model.addAttribute("page", "jobs");
 
 		List<Jobposting>  jobpostingList = jobpostingService.findPostingListByjobscatename(jobsCateName);
 		List<Job> jobList = jobpostingService.findJobList();
@@ -329,6 +330,8 @@ public class CustomerController {
 
 		String findCustomer = (String)session.getAttribute("loginId");
 		session.getAttribute(findCustomer);
+		
+		model.addAttribute("page", "jobs");
 
 		List<Job> jobList = jobpostingService.findJobList();
 		List<Jobposting> jobpostingList = jobpostingService.findJobpostingList();
@@ -377,8 +380,9 @@ public class CustomerController {
 
 	//faqs
 	//faqs 메인
-	@GetMapping("/cus/faqs")
+	@GetMapping("/faqs")
 	public String showFaqs(Model model) {
+		model.addAttribute("page", "faqs");
 		List<FAQs> faqsList = jobpostingService.findFaqsList();
 		model.addAttribute("faqsList" , faqsList);
 		return "customer/faqs";

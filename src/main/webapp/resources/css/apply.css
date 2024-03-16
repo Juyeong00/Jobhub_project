@@ -1,4 +1,3 @@
-@charset "UTF-8";
 *{
     margin:0;
     padding:0;
@@ -15,16 +14,13 @@
     align-items: center;
     background-color: #ececec;
 }
-.margin50px{
-    margin-top: 50px;
-}
+
 .apply_title{
     width:100%;
     background-color: #ececec;
     font-size:25px;
     padding-left:180px;
     padding-top:40px;
-    margin-top:50px;
 }
 .apply_header{
     width:78%;

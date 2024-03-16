@@ -27,7 +27,7 @@ public class EmployeeController {
 		List<Job> jobList = jobpostingService.findJobList(); //카테고리 조회
 		model.addAttribute("jobList" , jobList);
 		
-		
+		model.addAttribute("page", "people");
 		if(jobsName.isEmpty()) {
 			List<Employee> empList = applyService.findEmployeeList(); //전체 직원 조회
 			model.addAttribute("empList", empList);

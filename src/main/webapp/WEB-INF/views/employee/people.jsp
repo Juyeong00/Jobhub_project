@@ -25,7 +25,7 @@
 	<!--부서별 공고페이지 메인-->
 	<div class="container">
 		<div class="notice_info_header">
-			<span class="notice_title">Meet the HUBMANs</span>
+			<span class="notice_title">Meet the Global JobHub</span>
 			<div class="career_category">
 				<span class="category_item"><a href="/people" class="p_sub_tab_title">ALL</a></span>
 				<c:forEach var="jobItem" items="${jobList}">

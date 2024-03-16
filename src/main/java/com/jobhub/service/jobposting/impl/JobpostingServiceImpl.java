@@ -11,7 +11,6 @@ import com.jobhub.dto.jobposting.Description;
 import com.jobhub.dto.jobposting.FAQs;
 import com.jobhub.dto.jobposting.Job;
 import com.jobhub.dto.jobposting.Jobposting;
-import com.jobhub.dto.jobposting.PostingSearchCondition;
 import com.jobhub.service.jobposting.JobpostingService;
 
 @Service
@@ -30,66 +29,40 @@ public class JobpostingServiceImpl implements JobpostingService {
 		List<Jobposting> jobposting = jobpostingDAO.findJobpostingList();
 		return jobposting;
 	}
-	
+
 
 	public List<Jobposting> findPostingAndJobNameList(){
 		List<Jobposting> jobpostingNameList = jobpostingDAO.findPostingAndJobNameList();
 		return jobpostingNameList;
-}
-	
+	}
 
-public List<Jobposting> findJobpostingListBySearchCondition(String keyword) {
-	List<Jobposting> jobpostingList = jobpostingDAO.findJobpostingListBySearchCondition(keyword);
-	return jobpostingList;
-}
 
-public List<Jobposting> findPostingAndJobNameListBySearchCondition(String keyword){
-	List<Jobposting> jobpostingList = jobpostingDAO.findPostingAndJobNameListBySearchCondition(keyword);
-	return jobpostingList;
-}
+	public List<Jobposting> findJobpostingListBySearchCondition(String keyword) {
+		List<Jobposting> jobpostingList = jobpostingDAO.findJobpostingListBySearchCondition(keyword);
+		return jobpostingList;
+	}
 
-	
-/*
- * public List<Jobposting>
- * findPostingListBySearchCondition(PostingSearchCondition
- * postingSearchCondition){
- * 
- * List<Jobposting> jobpostingList =
- * jobpostingDAO.findPostingListBySearchCondition(postingSearchCondition);
- * return jobpostingList;
- * 
- * }
- */
-	
+	public List<Jobposting> findPostingAndJobNameListBySearchCondition(String keyword){
+		List<Jobposting> jobpostingList = jobpostingDAO.findPostingAndJobNameListBySearchCondition(keyword);
+		return jobpostingList;
+	}
+
 	public List<Jobposting> findPostingListBySearchCondition(String keyword){
 		List<Jobposting> jobpostingList = jobpostingDAO.findJobpostingListBySearchCondition(keyword);
 		return jobpostingList;
 	}
-	
-	/*
-	 * public List<Jobposting> findPostingListBySearchCondition(String keyword) { //
-	 * PostingSearchCondition 객체 생성 및 설정 PostingSearchCondition condition = new
-	 * PostingSearchCondition(); condition.setKeyword(keyword);
-	 * 
-	 * // DAO를 통해 데이터베이스에서 데이터를 조회 return
-	 * jobPostingDAO.findPostingListBySearchCondition(condition); }
-	 */
-	 
-	
+
 	public List<Jobposting> findPostingListByjobscatename(String keyword ){//,2개, SearchCondition 객체
 		List<Jobposting> jobpostingList = jobpostingDAO.findPostingListByjobscatename(keyword);
 		return jobpostingList;
 	}
-	 
-	
-	
 
 	public List<Job> findJobNameListbyPid(int jobLevel1) {
 		List<Job> jobNameList = jobpostingDAO.findJobNameListbyPid(jobLevel1);
 		return jobNameList;
 	}
 
-	public int saveJobposting(Jobposting jobposting) { // 잡포스팅 저장
+	public int saveJobposting(Jobposting jobposting) {
 		int result = jobpostingDAO.saveJobposting(jobposting);
 		return result;
 	}
@@ -119,27 +92,27 @@ public List<Jobposting> findPostingAndJobNameListBySearchCondition(String keywor
 		int result = jobpostingDAO.modifyDescription(description);
 		return result;
 	}
-	
+
 	public int saveFaqs(FAQs faqs) {
 		int result = jobpostingDAO.saveFaqs(faqs);
 		return result;
 	}
-	
+
 	public List<FAQs> findFaqsList(){
 		List<FAQs> faqsList = jobpostingDAO.findFaqsList();
 		return faqsList;
 	}
-	
+
 	public FAQs findFaqsbyId(String FAQsId){
 		FAQs faqs = jobpostingDAO.findFaqsbyId(FAQsId);
 		return faqs;
 	}
-	
+
 	public int modifyFaqs(FAQs faqs) {
 		int result = jobpostingDAO.modifyFaqs(faqs);
 		return result;
 	}
-	
+
 	public int removeFaqsById(String FAQsId) {
 		int result = jobpostingDAO.removeFaqsById(FAQsId);
 		return result;
@@ -147,22 +120,15 @@ public List<Jobposting> findPostingAndJobNameListBySearchCondition(String keywor
 
 	@Override
 	public List<EmployeeJobsInfo> findEmployeeJobsInfoList() {
-		// TODO Auto-generated method stub
 		List<EmployeeJobsInfo> findEmployeeJobsInfoList = jobpostingDAO.findEmployeeJobsInfoList();
-		
+
 		return findEmployeeJobsInfoList;
 	}
 
 	@Override
 	public List<Job> findJobsNameByLevel1List() {
-		// TODO Auto-generated method stub
 		List<Job> findJobsNameByLevel1List = jobpostingDAO.findJobsNameByLevel1();
 		return findJobsNameByLevel1List;
 	}
-	
-	
-	
-	
-	
-	
+
 }

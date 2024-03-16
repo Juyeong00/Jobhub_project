@@ -194,9 +194,7 @@ public class ApplyController {
 			int ansResult = applyService.saveAnswerInfo(hashMap);
 
 
-			//일단 이력서 테이블 저장 시도해보겠습니다..
-			System.out.println(resume);
-			System.out.println(resume.getSubmissionStatus());
+			//일단 이력서 테이블 저장
 			String loginId = (String)session.getAttribute("loginId");
 			resume.setUserId(loginId);
 
@@ -213,10 +211,8 @@ public class ApplyController {
 						int result = applyService.saveFileInfo(fileInfo);
 					}
 				} catch (IllegalStateException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}else {
@@ -231,8 +227,5 @@ public class ApplyController {
 			return "redirect:/";
 
 		}
-	
-	
-	
 
 	}

@@ -23,15 +23,13 @@
 					</div>
 				</div>
 				<div class="header_menu1_list">
-
-					<div class="header_menu1_list_item white_font"
+					<div class="header_menu1_list_item white_font ${page eq 'people' ? 'active' : ''}"
 						onclick="location.href='/people'">People</div>
 					<div class="header_menu1_list_item white_font">Culture</div>
-					<div class="header_menu1_list_item white_font"
+					<div class="header_menu1_list_item white_font ${page eq 'jobs' ? 'active' : ''}"
 						onclick="location.href='/jobs'">Jobs</div>
-					<div class="header_menu1_list_item white_font"
-						onclick="location.href='/cus/faqs'">FAQs</div>
-
+					<div class="header_menu1_list_item white_font ${page eq 'faqs' ? 'active' : ''}"
+						onclick="location.href='/faqs'">FAQs</div>
 				</div>
 			</div>
 			<div class="header_menu2">
@@ -75,20 +73,26 @@
 	</header>
 
 	<script>
-    
-    	function login(){
-    		if(confirm('로그인 하셔야 이용 가능합니다. 로그인 하시겠습니까?')){
-    			location.href='/login';
-    		}
-    	}
-    
-    	function logout(){
-    		if(confirm('로그아웃 하시겠습니까?')){
-    			document.getElementById("user_logout").submit();
-    		}
-    	}
-    	
-    </script>
+		function login() {
+			if (confirm('로그인 하셔야 이용 가능합니다. 로그인 하시겠습니까?')) {
+				location.href = '/login';
+			}
+		}
+
+		function logout() {
+			if (confirm('로그아웃 하시겠습니까?')) {
+				document.getElementById("user_logout").submit();
+			}
+		}
+
+		const underline = document.querySelector('.header_menu1_list_item.active');
+
+		if (underline) {
+			underline.addEventListener('mouseenter', function() {
+				underline.style.pointerEvents = 'none';
+			});
+		}
+	</script>
 
 </body>
 </html>

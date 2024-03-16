@@ -71,7 +71,7 @@
 						<div class="notice_list_item">
 							<div class="notice_info_title">
 								<a
-									href="../jobsDescription?postingId=${jobpostingListItem.postingId}">${jobpostingListItem.title}</a>
+									href="../jobsDescription?postingId=${jobpostingListItem.postingId}" class="postingName">${jobpostingListItem.title}</a>
 								<div class="notice_filter">
 									<span class="notice_filter_text">${jobpostingListItem.employmentType}
 										|</span> <span class="notice_filter_text">${jobpostingListItem.jobsCateName}
