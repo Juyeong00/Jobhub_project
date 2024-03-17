@@ -28,8 +28,8 @@
 		<div class="main_header">
 
 
-			<span class="company_title_text">One step closer</span> <span
-				class="company_title_text"> to a better future</span>
+			<span class="company_title_text">One step closer</span>
+			<span class="company_title_text"> to a better future</span>
 			<div class="select_filter_box">
 
 				<div class="select_category_box">
@@ -62,13 +62,10 @@
 					<i class="fa-solid fa-arrow-right"></i>
 				</div>
 			</div>
-			<video class="text_area"
-				src="/image/mainvideo.mp4" muted autoplay
-				loop="loop">
-			</video>
+			<video class="text_area" src="/image/mainvideo.mp4" muted autoplay loop="loop"></video>
 			<div class="scroll_down">
-				<span class="scroll_down_text">scroll</span> <span
-					class="scroll_down_text"><i class="fa-solid fa-chevron-down"></i></span>
+				<span class="scroll_down_text">scroll</span>
+				<span class="scroll_down_text"><i class="fa-solid fa-chevron-down"></i></span>
 			</div>
 		</div>
 		<div class="main">
@@ -138,16 +135,19 @@
 							<!--부서별 직원 인터뷰 내용 3번 반복-->
 							<span class="category_title">${employeeInfoList.rootName}</span>
 							<div class="employee_info">
-								<span class="employee_name">${employeeInfoList.name}</span> <span
-									class="employee_job">${employeeInfoList.jobsName}</span> <span
-									class="employee_interview"> 직원별 인터뷰 내용 </span>
+								<div class="img_area">
+									<img class="img" src="${employeeInfoList.filePath}${employeeInfoList.originalFileName}">
+								</div>
+								<span class="employee_name">${employeeInfoList.name}</span>
+								<span class="employee_job">${employeeInfoList.jobsName}</span>
+								<span class="employee_interview"> 직원별 인터뷰 내용 </span>
 							</div>
 						</div>
 					</c:forEach>
 				</div>
 				<div class="more_about_employee_info">
-					<span class="more_about_text2" onclick="location.href='/people'">More
-						about our JobHub ></span>
+					<span class="more_about_text2" onclick="location.href='/people'">
+					More about our JobHub ></span>
 				</div>
 			</div>
 		</div>

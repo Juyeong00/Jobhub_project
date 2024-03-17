@@ -20,6 +20,7 @@
 </head>
 <body>
 	<!--헤더 -->
+	<!-- 이미지출처: https://generated.photos/faces  (ai 이미지) -->
 	<%@ include file="../header_footer/header.jsp"%>
 
 	<!--부서별 공고페이지 메인-->
@@ -48,7 +49,7 @@
 			<c:forEach var="empList" items="${empList}">
 				<li class="itemList">
 					<div class="img_area">
-						<img class="img" src="image/employee.png">
+						<img class="img" src="${empList.filePath}${empList.originalFileName}">
 					</div>
 					<div class="text_area">
 						<span class="name">${empList.name}</span> <span class="position">${empList.jobsName}</span>
@@ -61,5 +62,6 @@
 
 	<!--footer-->
 	<%@ include file="../header_footer/footer.jsp"%>
+	<script src="js/people.js"></script>
 </body>
 </html>

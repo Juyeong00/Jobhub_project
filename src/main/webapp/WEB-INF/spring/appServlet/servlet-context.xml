@@ -60,7 +60,7 @@ http://www.springframework.org/schema/context/spring-context.xsd">
 	<resources mapping="/js/admin/*" location="/resources/admin/js/" />
 	<resources mapping="/js/common/*" location="/resources/common/js/" />
 	<resources mapping="/fileStorage/**" location="file:///D:/fileStorage/" />
-
+	<resources mapping="/empStorage/**" location="file:///D:/empStorage/" />
 
 	<resources mapping="/**" location="/resources/" />
 	

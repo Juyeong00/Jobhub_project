@@ -10,12 +10,11 @@
 	</select>
 
 	<select id="findEmployeeJobsInfoList" resultType="EmployeeJobsInfo">
-
-		SELECT e.name, j.jobs_name, jb.jobs_name AS root_name
+		SELECT e.name, j.jobs_name, jb.jobs_name AS root_name, f.*
 		FROM employee e
 		JOIN jobs j ON e.jobs_id = j.jobs_id
 		LEFT JOIN jobs jb ON j.jobs_pid = jb.jobs_id
-
+		JOIN file_info f ON e.file_id = f.file_id
 	</select>
 
 	<select id="findJobsNameByLevel1" resultType="Job">

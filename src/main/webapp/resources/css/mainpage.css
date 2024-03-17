@@ -233,3 +233,18 @@ video{
 .employee_name{
     font-size: 25px;
 }
+
+.img_area {
+    height: 210px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom:70px;
+}

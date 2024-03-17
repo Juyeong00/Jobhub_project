@@ -48,20 +48,18 @@
 							<i class="fa-regular fa-heart white_font" onclick="login()"></i>
 						</c:if>
 						<c:if test="${sessionScope.loginId != null}">
-							<i class="fa-regular fa-heart white_font red"
-								onclick="location.href='/scrap_page'"></i>
+							<i class="fa-regular fa-heart white_font red" onclick="location.href='/scrap_page'"></i>
 						</c:if>
 
 					</div>
 					<c:if test="${sessionScope.loginId == null}">
 						<i class="fa-solid fa-user header_menu2_list2_item white_font"
-							onclick="login()"></i>
+						onclick="login()"></i>
 					</c:if>
 					<c:if test="${sessionScope.loginId != null}">
 						<i class="fa-solid fa-user header_menu2_list2_item white_font"
-							onclick="location.href='/mypage'"></i>
-						<i
-							class="fa-solid fa-right-from-bracket header_menu2_list2_item white_font"
+						onclick="location.href='/mypage'"></i>
+						<i class="fa-solid fa-right-from-bracket header_menu2_list2_item white_font"
 							onclick="logout()"></i>
 						<form id="user_logout" method="post" action="/logout">
 							<input type="hidden">

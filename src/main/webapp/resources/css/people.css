@@ -19,6 +19,17 @@
     padding-bottom: 50px;
 
 }
+.itemList {
+    opacity: 0;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-transition: opacity 1.5s, -webkit-transform 1.5s;
+    transition: opacity 1.5s, -webkit-transform 1.5s;
+}
+
+.itemList.loaded {
+    opacity: 1;
+}
 .notice_title {
     font-size: 50px;
     padding-bottom: 30px;

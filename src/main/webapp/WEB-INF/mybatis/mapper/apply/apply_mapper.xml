@@ -144,9 +144,10 @@
 	</insert>
 
 	<select id="findEmployeeList" resultType="Employee">
-		SELECT e.name, jobs_name, e.email
-		FROM employee e, jobs j
+		SELECT DISTINCT *
+		FROM employee e, jobs j, file_info f
 		WHERE e.jobs_id = j.jobs_id
+		AND e.file_id = f.file_id
 	</select>
 	
 	<select id="findQuestions" parameterType="String" resultType="Jobposting">
@@ -156,14 +157,13 @@
 	</select>
 	
 	<select id="findEmployeeByJobsname" parameterType="String" resultType="Employee">
-		SELECT * 
-		FROM (SELECT e.*, js.jobs_name jobsName,
-		        (SELECT jobs_name
-		        FROM jobs j
-		        WHERE j.jobs_id = js.jobs_pid) jobsCateName
-		    FROM employee e, jobs js
-		    WHERE e.jobs_id = js.jobs_id)  
-		WHERE jobsCateName LIKE '%' || #{jobsName} || '%'
+		SELECT e.*, js.jobs_name AS jobsName, 
+		       jc.jobs_name AS jobsCateName, f.*
+		FROM employee e
+		INNER JOIN jobs js ON e.jobs_id = js.jobs_id
+		INNER JOIN jobs jc ON js.jobs_pid = jc.jobs_id
+		INNER JOIN file_info f ON e.file_id = f.file_id 
+		WHERE jc.jobs_name LIKE '%' || #{jobsName} || '%'
 	</select>
 
 </mapper>

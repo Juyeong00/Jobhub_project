@@ -32,5 +32,11 @@ public class Employee {
 	String hireDate;
 	String email;
 	String jobsName;
+	int fileId;
+	String fileName;
+	String originalFileName;
+	String filePath;
+	String fileExtension;
+	long fileSize;
 	
 }
