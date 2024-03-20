@@ -1,14 +1,16 @@
 package com.jobhub.controller.customer;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.jobhub.dto.api.ApiResponse;
 import com.jobhub.dto.customer.Customer;
 import com.jobhub.service.apply.ApplyService;
 import com.jobhub.service.customer.CustomerService;
@@ -30,10 +32,8 @@ public class UserLoginController {
 	@PostMapping("/sign-up")
 	public String signUpProcess(@ModelAttribute Customer customer) {
 		
-		System.out.println(customer);
-		
 		int result = customerService.saveUser(customer);
-		System.out.println(result);
+		
 		if(result > 0) {
 			return "redirect:/login";
 		}else {
@@ -42,29 +42,29 @@ public class UserLoginController {
 		
 	}
 	
-	@ResponseBody
-	@RequestMapping("/customer/isDuplicatedId")
-	public ApiResponse isDuplecatedId(@RequestBody String id) {
-		
-		System.out.println(id);
-		
-		boolean result = applyService.isDuplicatedId(id);
-	
-		ApiResponse res = new ApiResponse();
-		
-		if(result) {
-			res.setResultCode(100);
-			res.setMsg("중복입니다.");
-			res.setData(id);
-		}else {
-			res.setResultCode(200);
-			res.setMsg("사용가능합니다.");
-			res.setData(id);
-		}
-		
-		return res;
-		
-	}
+	@PostMapping("/sign-up/isDuplicatedId")
+    @ResponseBody
+    public Map<String, Object> isDuplicatedId(@RequestParam String id) {
+        Map<String, Object> response = new HashMap<>();
+
+        try {
+            boolean isDuplicated = applyService.isDuplicatedId(id);
+
+            if (isDuplicated) {
+                response.put("resultCode", 409);
+                response.put("msg", "아이디가 중복됩니다.");
+            } else {
+                response.put("resultCode", 200);
+                response.put("msg", "사용 가능한 아이디입니다.");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            response.put("resultCode", 500);
+            response.put("msg", "서버 오류가 발생했습니다.");
+        }
+
+        return response;
+    }
 	
 	
 }

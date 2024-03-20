@@ -5,7 +5,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Jobhub : 로그인</title>
+<link rel="shortcut icon" href="common/icon/jobhub_favicon.ico"
+	type="image/x-icon">
 <link href="css/login.css" rel="stylesheet"/>
 </head>
 <body>

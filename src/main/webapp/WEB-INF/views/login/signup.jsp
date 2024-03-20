@@ -5,7 +5,9 @@
 
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Jobhub : 회원가입</title>
+<link rel="shortcut icon" href="common/icon/jobhub_favicon.ico"
+	type="image/x-icon">
 <link href="css/signup.css" rel="stylesheet" />
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
@@ -17,7 +19,6 @@
 
 	<%@ include file="../header_footer/header.jsp"%>
 
-
 	<div class="signup_title">신규지원자 등록</div>
 	<div class="container">
 		<div class="signup_main">
@@ -25,53 +26,52 @@
 				<form action="/sign-up" method="post" id="signupForm">
 					<div class="form_group">
 						<div class="form_line">
-							<label for="signup_input_id" class="signup_label">아이디</label> <input
-								type="text" name="userId" class="signup_input"
-								id="signup_input_id" placeholder="아이디를 입력해 주세요"
-								oninput="onInputId()"> <span class="warningId">아이디는
-								필수 입력값입니다.</span>
-                                
+							<label for="signup_input_id" class="signup_label">아이디</label>
+							<input type="text" name="userId" class="signup_input"
+							id="signup_input_id" placeholder="아이디를 입력해 주세요" oninput="onInputId()">
+							<span class="warningId">아이디는 필수 입력값입니다.</span>
+						</div>
+						<div class="id_checkDup">
+							<button type="button" id="btn_checkDupId">중복확인</button>
+							<div id="idCheckResult"></div>
 						</div>
 					</div>
 					<div class="form_group">
 						<div class="form_line">
-							<label for="signup_input_pw" class="signup_label">비밀번호</label> <input
-								type="password" name="password" class="signup_input"
-								id="signup_input_pw" placeholder="비밀번호를 입력해 주세요"
-								oninput="onInputPw()"> <span class="warningPw">비밀번호는
-								필수 입력값입니다.</span>
+							<label for="signup_input_pw" class="signup_label">비밀번호</label>
+							<input type="password" name="password" class="signup_input"
+							id="signup_input_pw" placeholder="비밀번호를 입력해 주세요" oninput="onInputPw()">
+							<span class="warningPw">비밀번호는 필수 입력값입니다.</span>
 						</div>
 						<div class="form_line2">
-							<label for="signup_input_pwchk" class="signup_label">비밀번호
-								확인</label> <input type="password" class="signup_input"
-								id="signup_input_pwchk" placeholder="비밀번호를 다시 입력해 주세요"
-								oninput="onInputPwchk()"> <span class="warningPwchk">비밀번호가
-								일치하지 않습니다. 다시 확인해주세요.</span>
+							<label for="signup_input_pwchk" class="signup_label">비밀번호 확인</label>
+							<input type="password" class="signup_input" id="signup_input_pwchk"
+							placeholder="비밀번호를 다시 입력해 주세요" oninput="onInputPwchk()">
+								<span class="warningPwchk">비밀번호가 일치하지 않습니다. 다시 확인해주세요.</span>
 						</div>
 					</div>
 					<div class="form_group">
 						<div class="form_line">
-							<label for="signup_input_name" class="signup_label">이름</label> <input
-								type="text" name="name" class="signup_input"
-								id="signup_input_name" placeholder="이름을 입력해 주세요"
-								oninput="onInputName()"> <span class="warningName">이름은
-								필수 입력값입니다.</span>
+							<label for="signup_input_name" class="signup_label">이름</label>
+							<input type="text" name="name" class="signup_input"
+							id="signup_input_name" placeholder="이름을 입력해 주세요" oninput="onInputName()">
+								<span class="warningName">이름은 필수 입력값입니다.</span>
 						</div>
 					</div>
 					<div class="form_group">
 						<div class="form_line">
 							<label for="signup_input_birth" class="signup_label">생년월일</label>
-							<input type="text" name="birth" class="signup_input"
-								id="signup_input_birth" placeholder="YYYY-MM-DD" maxlength="10"
-								oninput="onInputBirth()"> <span class="warningBirth">생일은
-								필수 입력값입니다.</span> <span class="warning">잘못된 생년월일 형식입니다. 생년월일을
-								정확하게 입력해주세요.</span>
+							<input type="text" name="birth" class="signup_input" id="signup_input_birth"
+							placeholder="YYYY-MM-DD" maxlength="10" oninput="onInputBirth()">
+							<span class="warningBirth">생일은 필수 입력값입니다.</span>
+							<span class="warning">잘못된 생년월일 형식입니다. 생년월일을 정확하게 입력해주세요.</span>
 						</div>
 						<div class="form_line3">
-							<label class="form_gender"> <input type="radio"
-								name="gender" value="남" checked> <span>남</span>
-							</label> <label class="form_gender"> <input type="radio"
-								name="gender" value="여"> <span>여</span>
+							<label class="form_gender">
+							<input type="radio" name="gender" value="남" checked> <span>남</span>
+							</label>
+							<label class="form_gender">
+							<input type="radio" name="gender" value="여"> <span>여</span>
 							</label>
 						</div>
 					</div>
@@ -79,10 +79,9 @@
 						<div class="form_line">
 							<label for="signup_input_email" class="signup_label">이메일</label>
 							<input type="email" name="email" class="signup_input"
-								id="signup_input_email" placeholder="이메일을 입력해 주세요"
-								pattern="[a-zA-Z0-9]+[@][a-zA-Z0-9]+[.]+[a-zA-Z]+[.]*[a-zA-Z]*"
-								oninput="onInputEmail()"> <span class="warningEmail">이메일은
-								필수 입력값입니다.</span>
+							id="signup_input_email" placeholder="이메일을 입력해 주세요"
+							pattern="[a-zA-Z0-9]+[@][a-zA-Z0-9]+[.]+[a-zA-Z]+[.]*[a-zA-Z]*" oninput="onInputEmail()">
+								<span class="warningEmail">이메일은 필수 입력값입니다.</span>
 						</div>
 					</div>
 					<div class="form_group">
@@ -90,14 +89,13 @@
 							<label for="signup_input_tel" class="signup_label">휴대폰 번호</label>
 							<input type="text" name="phone" class="signup_input"
 								id="signup_input_phone" placeholder="000-0000-0000"
-								oninput="onInputPhone(this)" maxlength="13"
-								oninput="onInputPhone()"> <span class="warningPhone">휴대전화는
-								필수 입력값입니다.</span>
+								oninput="onInputPhone(this)" maxlength="13">
+								<span class="warningPhone">휴대전화는 필수 입력값입니다.</span>
 						</div>
 					</div>
 					<div class="signup_submit">
-						<label for="signup_check" class="signup_label"><input
-							type="checkbox" id="signup_check"> [필수] 개인정보 수집 및 이용 동의</label>
+						<label for="signup_check" class="signup_label">
+						<input type="checkbox" id="signup_check"> [필수] 개인정보 수집 및 이용 동의</label>
 						<div class="signup_rule">
 							<div class="form-agree-detail">
 								<div>

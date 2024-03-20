@@ -285,3 +285,33 @@ document.getElementById('submitBtn').addEventListener('click', function(e) {
     }
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+	const btn_checkDupId = document.getElementById('btn_checkDupId');
+	const userIdInput = document.getElementById('signup_input_id');
+	const idCheckResult = document.getElementById('idCheckResult');
+
+	btn_checkDupId.addEventListener('click', function () {
+		const input_id = userIdInput.value;
+
+		$.ajax({
+			type: "POST",
+			url: "/sign-up/isDuplicatedId",
+			headers: {
+			    "Content-type": "application/x-www-form-urlencoded"
+			},
+			data: { id: input_id },
+			dataType: 'json',
+			success: function (result) {
+			    if (result.resultCode === 409) {
+			        idCheckResult.textContent = '이미 사용 중인 아이디입니다.';
+			        userIdInput.value='';
+			    } else {
+			        idCheckResult.textContent = '사용 가능한 아이디입니다.';
+			    }
+			},
+			error: function () {
+			    console.log('실패 에러');
+			}
+		});
+	});
+});

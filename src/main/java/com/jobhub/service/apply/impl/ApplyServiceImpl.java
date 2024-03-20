@@ -35,8 +35,6 @@ public class ApplyServiceImpl implements ApplyService{
 
 	@Override
 	public int saveEducationInfo(Map<String, Object> eduMap) {
-		// TODO Auto-generated method stub
-
 		int result = applyDAO.saveEducationInfo(eduMap);
 
 		return result;
@@ -45,8 +43,6 @@ public class ApplyServiceImpl implements ApplyService{
 
 	@Override
 	public int saveCareerInfo(Map<String, Object> hashMap) {
-		// TODO Auto-generated method stub
-
 		int result = applyDAO.saveCareerInfo(hashMap);
 
 		return result;
@@ -54,8 +50,6 @@ public class ApplyServiceImpl implements ApplyService{
 
 	@Override
 	public int saveCertificateInfo(Map<String, Object> hashMap) {
-		// TODO Auto-generated method stub
-
 		int result = applyDAO.saveCertificateInfo(hashMap);
 
 		return result;
@@ -63,8 +57,6 @@ public class ApplyServiceImpl implements ApplyService{
 
 	@Override
 	public int saveAnswerInfo(Map<String, Object> hashMap) {
-		// TODO Auto-generated method stub
-
 		int result = applyDAO.saveAnswerInfo(hashMap);
 
 		return result;
@@ -72,8 +64,6 @@ public class ApplyServiceImpl implements ApplyService{
 
 	@Override
 	public int saveFileInfo(FileInfo fileInfo) {
-		// TODO Auto-generated method stub
-
 		int result = applyDAO.saveFileInfo(fileInfo);
 
 		return result;
@@ -81,8 +71,6 @@ public class ApplyServiceImpl implements ApplyService{
 
 	@Override
 	public int saveResumeInfo(Resume resume) {
-		// TODO Auto-generated method stub
-
 		int result = applyDAO.saveResumeInfo(resume);
 
 		return result;
@@ -91,16 +79,11 @@ public class ApplyServiceImpl implements ApplyService{
 
 	@Override
 	public int saveFileInfo(List<FileInfo> fileInfoList) {
-		// 리스트에 있는 각 파일 정보를 반복하여 DAO로 전달
 		int result = 0;
 		for (FileInfo fileInfo : fileInfoList) {
-			System.out.println(fileInfo);
 			result += applyDAO.saveFileInfo(fileInfo);
-			// 각 파일 정보의 저장 결과를 확인하거나 처리할 수 있습니다.
-			// 예를 들어, 저장에 실패한 경우 예외 처리를 할 수 있습니다.
 		}
-		// 최종적으로 저장 결과 반환
-		return result; // 여러 파일 중 하나라도 저장에 실패하면 어떻게 처리할지에 따라 반환값이 달라질 수 있습니다.
+		return result;
 	}
 
 	@Override
@@ -121,9 +104,9 @@ public class ApplyServiceImpl implements ApplyService{
 
 		Customer user = applyDAO.findUserById(id);
 		if(user == null) {
-			return false;  //return 0;
+			return false;
 		}else {
-			return true;  //return 1;
+			return true;
 		}
 	}
 	

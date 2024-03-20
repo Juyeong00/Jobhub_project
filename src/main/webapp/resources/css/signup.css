@@ -147,3 +147,26 @@ ul{
     outline:none;
     border-color:#2dc26b;
 }
+.id_checkDup{
+	display:flex;
+    justify-content: center;
+    align-items:center;
+    margin-top:32px;
+}
+
+#btn_checkDupId{
+	color:white;
+	font-weight:bold;
+	background-color: #2dc26b;
+	width:70px;
+	height:33px;
+    text-align: center;
+    cursor: pointer;
+    margin-left:30px;
+    border:0;
+}
+#idCheckResult{
+	font-size:13px;
+	margin-left:6px;
+	text-align:center;
+}
